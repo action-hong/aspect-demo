@@ -27,3 +27,21 @@ p {
 }
 </style>
 
+<style scoped>
+  
+
+  /* @media (min-aspect-ratio: 5/3) {
+    p {
+      color: skyblue;
+    }
+  }
+
+  @media (max-aspect-ratio: 5/3) {
+    p {
+      color: red;
+    }
+  } */
+
+</style>
+
+
