@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="ratio">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -7,11 +7,33 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import { calRatio } from './ratio'
 export default {
   name: 'app',
+  data () {
+    return {
+      ratio: ''
+    }
+  },
   components: {
     HelloWorld
+  },
+  created () {
+    this.initRatio()
+    window.addEventListener('resize', () => {
+      this.initRatio()
+    })
+  },
+  destroyed() {
+    window.removeEventListener('resize', () => {
+      this.initRatio()
+    })
+  },
+  methods: {
+    initRatio () {
+      const doc = document.documentElement
+      this.ratio = calRatio(doc)
+    }
   }
 }
 </script>
